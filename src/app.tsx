@@ -1,11 +1,20 @@
+/*
+ * @Author: xushijie xushijie@yunlizhihui.com
+ * @Date: 2023-06-05 16:19:03
+ * @LastEditors: xushijie xushijie@yunlizhihui.com
+ * @LastEditTime: 2023-06-05 17:48:19
+ * @FilePath: \midway-project-web\src\app.tsx
+ * @Description: 描述一下
+ * 
+ */
 import { useEffect, useMemo } from 'react';
-import { ConfigProvider, ThemeConfig, theme } from 'antd'
+import { ConfigProvider, ThemeConfig, theme, App as AntdApp } from 'antd'
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 
 import { useGlobalStore } from './store/global'
 import { routeConfig } from './config/routes';
 
-import Login from './pages/user/login';
+import Login from './pages/login';
 import BasicLayout from './layouts';
 import Result404 from './404';
 import { i18n } from './utils/i18n';
@@ -73,7 +82,9 @@ function App() {
     <ConfigProvider
       theme={curTheme}
     >
-      <RouterProvider router={router} />
+      <AntdApp>
+        <RouterProvider router={router} />
+      </AntdApp>
     </ConfigProvider>
   )
 }

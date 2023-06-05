@@ -127,7 +127,6 @@ const Dashboard = () => {
                 ]}
                 defaultValue="today"
                 size="large"
-                popupMatchSelectWidth={false}
                 placement="bottomRight"
               />
             </div>
