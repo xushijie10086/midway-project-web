@@ -1,3 +1,4 @@
+import { t } from "@/utils/i18n";
 import { App, Form, FormInstance, Input, Radio } from "antd";
 import { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from "react";
 import userService, { User } from "./service";
@@ -27,10 +28,10 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
             setSaveLoading(true);
             if (editData) {
                 await updateUser({ ...editData, ...values });
-                message.success('更新成功！');
+                message.success(t("cEriMGHB" /* 更新成功！ */));
             } else {
                 await addUser(values);
-                message.success('创建成功！');
+                message.success(t("HmOqbLKP" /* 创建成功！ */));
             }
             onSave();
         } catch (error: any) {
@@ -48,59 +49,59 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
             initialValues={editData}
         >
             <Form.Item
-                label='用户名'
+                label={t("gGGfiMXg" /* 用户名 */)}
                 name="userName"
                 rules={[{
                     required: true,
-                    message: '不能为空',
+                    message: t("mHAMIhPB" /* 不能为空 */),
                 }]}
             >
                 <Input />
             </Form.Item>
             <Form.Item
-                label={'昵称'}
+                label={t("rNVhMjzL" /* 昵称 */)}
                 name="nickName"
                 rules={[{
                     required: true,
-                    message: '不能为空',
+                    message: t("gOWhRHPa" /* 不能为空 */),
                 }]}
             >
                 <Input />
             </Form.Item>
             <Form.Item
-                label='手机号'
+                label={t("Ywamboto" /* 手机号 */)}
                 name="phone"
                 rules={[{
                     required: true,
-                    message: '不能为空',
+                    message: t("eQxPVurG" /* 不能为空 */),
                 }, {
                     pattern: /^(13[0-9]|14[5-9]|15[0-3,5-9]|16[2567]|17[0-8]|18[0-9]|19[89])\d{8}$/,
-                    message: '手机号格式不正确',
+                    message: t("KlmqOgfr" /* 手机号格式不正确 */),
                 }]}
             >
                 <Input />
             </Form.Item>
             <Form.Item
-                label='邮箱'
+                label={t("YsgvxeAf" /* 邮箱 */)}
                 name="email"
                 rules={[{
                     required: true,
-                    message: '不能为空',
+                    message: t("cRMNYqkz" /* 不能为空 */),
                 }, {
                     pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: '邮箱格式不正确',
+                    message: t("vahfSEha" /* 邮箱格式不正确 */),
                 }]}
             >
                 <Input />
             </Form.Item>
             <Form.Item
-                label='性别'
+                label={t("GaiAJsLv" /* 性别 */)}
                 name="sex"
             // initialValue={1}
             >
                 <Radio.Group>
-                    <Radio value={1}>男</Radio>
-                    <Radio value={0}>女</Radio>
+                    <Radio value={1}>{t("zoUCEptE" /* 男 */)}</Radio>
+                    <Radio value={0}>{t("ZtDGfcTQ" /* 女 */)}</Radio>
                 </Radio.Group>
             </Form.Item>
         </Form>

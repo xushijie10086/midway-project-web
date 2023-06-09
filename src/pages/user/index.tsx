@@ -28,33 +28,33 @@ const UserPage = () => {
     const [formOpen, setFormOpen] = useState(false);
     const columns: ColumnsType<any> = [
         {
-            title: '用户名',
+            title: t("gGGfiMXg" /* 用户名 */),
             dataIndex: 'userName',
         },
         {
-            title: '昵称',
+            title: t("rNVhMjzL" /* 昵称 */),
             dataIndex: 'nickName',
         },
         {
-            title: '手机号',
+            title: t("Ywamboto" /* 手机号 */),
             dataIndex: 'phone',
         },
         {
-            title: '邮箱',
+            title: t("YsgvxeAf" /* 邮箱 */),
             dataIndex: 'email',
         },
         {
-            title: '性别',
+            title: t("GaiAJsLv" /* 性别 */),
             dataIndex: 'sex',
-            render: (value: number) => value === 1 ? '男' : '女',
+            render: (value: number) => value === 1 ? t("zoUCEptE" /* 男 */) : t("ZtDGfcTQ" /* 女 */),
         },
         {
-            title: '创建时间',
+            title: t("PAEYEnxi" /* 创建时间 */),
             dataIndex: 'createDate',
             render: (value: number) => value && dayjs(value).format('YYYY-MM-DD HH:mm:ss'),
         },
         {
-            title: '操作',
+            title: t("QkOmYwne" /* 操作 */),
             key: 'action',
             render: (_, record) => record.userName !== 'admin' && (
                 <Space size="middle">
@@ -63,17 +63,17 @@ const UserPage = () => {
                             setEditData(record);
                             setFormOpen(true);
                         }}
-                    >编辑</a>
+                    >{t("jdbqhJVm" /* 编辑 */)}</a>
                     <Popconfirm
-                        title='警告'
-                        description='确认删除这条数据？'
+                        title={t("ABwSCulf" /* 警告 */)}
+                        description={t("wxpXHvDa" /* 确认删除这条数据？ */)}
                         onConfirm={async () => {
                             await deleteUser(record.id);
-                            message.success('删除成功！');
+                            message.success(t("AEQHAHrP" /* 删除成功！ */));
                             submit();
                         }}
                     >
-                        <a>删除</a>
+                        <a>{t("JAhXkFut" /* 删除 */)}</a>
                     </Popconfirm>
                 </Space>
             ),
@@ -100,24 +100,24 @@ const UserPage = () => {
             <Form onFinish={submit} form={form} size="large" className='dark:bg-[rgb(33,41,70)] bg-white p-[24px] rounded-lg'>
                 <Row gutter={24}>
                     <Col className='w-[100%]' lg={24} xl={6} >
-                        <Form.Item name="userName" label='用户名'>
+                        <Form.Item name="userName" label={t("gGGfiMXg" /* 用户名 */)}>
                             <Input onPressEnter={submit} />
                         </Form.Item>
                     </Col>
                     <Col className='w-[100%]' lg={24} xl={6} >
-                        <Form.Item name="nickName" label='昵称'>
+                        <Form.Item name="nickName" label={t("rNVhMjzL" /* 昵称 */)}>
                             <Input onPressEnter={submit} />
                         </Form.Item>
                     </Col>
                     <Col className='w-[100%]' lg={24} xl={6}>
-                        <Form.Item name="phone" label='手机号'>
+                        <Form.Item name="phone" label={t("Ywamboto" /* 手机号 */)}>
                             <Input onPressEnter={submit} />
                         </Form.Item>
                     </Col>
                     <Col className='w-[100%]' lg={24} xl={6}>
                         <Space>
-                            <Button onClick={submit} type='primary'>搜索</Button>
-                            <Button onClick={reset}>清除</Button>
+                            <Button onClick={submit} type='primary'>{t("YHapJMTT" /* 搜索 */)}</Button>
+                            <Button onClick={reset}>{t("uCkoPyVp" /* 清除 */)}</Button>
                         </Space>
                     </Col>
                 </Row>
@@ -125,7 +125,7 @@ const UserPage = () => {
 
             <div className="mt-[16px] dark:bg-[rgb(33,41,70)] bg-white rounded-lg px-[12px]">
                 <div className='py-[16px] '>
-                    <Button onClick={openForm} type='primary' size='large' icon={<PlusOutlined />}>新增</Button>
+                    <Button onClick={openForm} type='primary' size='large' icon={<PlusOutlined />}>{t("pOMYeSBE" /* 新增 */)}</Button>
                 </div>
                 <Table
                     rowKey="id"
@@ -137,7 +137,7 @@ const UserPage = () => {
             </div>
 
             <Modal
-                title={editData ? '编辑' : '新建'}
+                title={editData ? t("mdDFVLKG" /* 编辑 */) : t("PaFMOZLs" /* 新建 */)}
                 open={formOpen}
                 onOk={() => {
                     formRef.current?.submit();

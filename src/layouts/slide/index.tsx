@@ -1,3 +1,12 @@
+/*
+ * @Author: xushijie xushijie@yunlizhihui.com
+ * @Date: 2023-06-05 16:19:03
+ * @LastEditors: xushijie xushijie@yunlizhihui.com
+ * @LastEditTime: 2023-06-09 17:34:14
+ * @FilePath: \midway-project-web\src\layouts\slide\index.tsx
+ * @Description: 描述一下
+ * 
+ */
 import { memo } from 'react';
 import { Drawer } from 'antd';
 import { useUpdateEffect } from 'react-use';
@@ -50,7 +59,7 @@ const SlideIndex = () => {
             style={{ width: defaultSetting.slideWidth }}
           >
             <IconBuguang className="text-blue-500" />
-            <h1 className='text-primary font-bold text-[22px]'>fluxy-admin</h1>
+            <h1 className='text-primary font-bold text-[22px]'>员工档案管理</h1>
           </div>
         )}
         headerStyle={{ padding: '24px 0', border: 'none' }}

@@ -33,7 +33,7 @@ const Header = () => {
       <div style={{ width: defaultSetting.slideWidth }} className="<lg:hidden flex justify-between items-center">
         <div className='flex items-center gap-[4px] text-[20px] px-[24px] pr-0'>
           <IconBuguang className="text-blue-500" />
-          <h1 className='text-primary font-bold text-[22px]'>fluxy-admin</h1>
+          <h1 className='text-primary font-bold text-[22px]'>员工档案管理</h1>
         </div>
         <div
           className='btn-icon'

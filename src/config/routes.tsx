@@ -2,15 +2,15 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-06 11:40:06
- * @FilePath: \fluxy-admin\midway-project-web\src\config\routes.tsx
+ * @LastEditTime: 2023-06-07 14:30:18
+ * @FilePath: \midway-project-web\src\config\routes.tsx
  * @Description: 描述一下
  * 
  */
 import { DashboardOutlined, TableOutlined, UserOutlined } from '@ant-design/icons';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-
+import { t } from "@/utils/i18n";
 export interface MenuItem {
    path: string;
    title?: string;
@@ -30,13 +30,13 @@ export const routeConfig: MenuItem[] = [
    },
    {
       path: 'system',
-      title: '系统管理',
+      title: t("TxjhbkRA" /* 系统管理 */),
       icon: <DashboardOutlined />,
       children: [
          {
             path: '/system/user',
             Component: lazy(() => import('@/pages/user')),
-            title: '用户管理',
+            title: t("OSoFHlup" /* 用户管理 */),
             icon: <UserOutlined />,
          }
       ]
@@ -44,7 +44,7 @@ export const routeConfig: MenuItem[] = [
    {
       path: '/table',
       Component: lazy(() => import('@/pages/table')),
-      title: '表格',
+      title: t("bDMJnjEq" /* 表格 */),
       icon: <TableOutlined />,
    },
    {
