@@ -1,4 +1,12 @@
-import React from 'react'
+/*
+ * @Author: xushijie xushijie@yunlizhihui.com
+ * @Date: 2023-06-05 16:19:03
+ * @LastEditors: xushijie xushijie@yunlizhihui.com
+ * @LastEditTime: 2023-06-13 16:40:28
+ * @FilePath: \midway-project-web\src\main.tsx
+ * @Description: 描述一下
+ * 
+ */
 import ReactDOM from 'react-dom/client'
 import NProgress from 'nprogress';
 
@@ -19,7 +27,5 @@ NProgress.configure({
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />
 )

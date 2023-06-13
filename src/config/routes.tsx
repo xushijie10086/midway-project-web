@@ -10,7 +10,7 @@
 import { DashboardOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import { t } from "@/utils/i18n";
+
 export interface MenuItem {
    path: string;
    title?: string;
@@ -30,13 +30,13 @@ export const routeConfig: MenuItem[] = [
    },
    {
       path: 'system',
-      title: t("TxjhbkRA" /* 系统管理 */),
+      title: '系统管理',
       icon: <SettingOutlined />,
       children: [
          {
             path: '/system/user',
             Component: lazy(() => import('@/pages/user')),
-            title: t("OSoFHlup" /* 用户管理 */),
+            title: '用户管理',
             icon: <UserOutlined />,
          }
       ]

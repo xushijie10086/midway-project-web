@@ -13,7 +13,7 @@ export interface User {
   id: number;
   userName: string;
   nickName: string;
-  phoneNumber: string;
+  phone: string;
   email: string;
   createDate: string;
   updateDate: string;

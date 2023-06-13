@@ -15,7 +15,6 @@ import loginService from '@/pages/login/service';
 import { useUserStore } from '@/stores/global/user';
 
 const Header = () => {
-  const { currentUser } = useUserStore()
 
   const {
     darkMode,
@@ -25,6 +24,8 @@ const Header = () => {
     setLang,
     lang,
   } = useGlobalStore();
+
+  const { currentUser } = useUserStore()
 
   const { runAsync } = useRequest(loginService.logout, { manual: true })
 
@@ -40,7 +41,7 @@ const Header = () => {
   return (
     <div
       style={{ zIndex: 1001 }}
-      className="h-[80px] flex basis-[48px] items-center px-0 gap-[16px] fixed top-0 right-0 left-0 bg-primary"
+      className="color-transition h-[80px] flex basis-[48px] items-center px-0 gap-[16px] fixed top-0 right-0 left-0 bg-primary"
     >
       <div style={{ width: defaultSetting.slideWidth }} className="<lg:hidden flex justify-between items-center">
         <div className='flex items-center gap-[4px] text-[20px] px-[24px] pr-0'>
@@ -109,7 +110,7 @@ const Header = () => {
             placement="bottom"
             overlayClassName='w-[160px]'
           >
-            <div className='btn-icon text-[20px] bg-[rgb(227,242,253)] dark:text-[rgb(30,136,229)] text-[rgb(30,136,229)] hover:(bg-[rgb(33,150,243)] dark:text-[rgb(227,242,253)] text-[rgb(227,242,253)])'>
+            <div className='btn-icon text-[20px] bg-[rgb(227,242,253)]  text-[rgb(30,136,229)] hover:(bg-[rgb(33,150,243)] dark:text-[rgb(227,242,253)] text-[rgb(227,242,253)])'>
               {lang === 'zh' ? (
                 <IconShuyi_fanyi36 />
               ) : (

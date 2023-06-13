@@ -2,10 +2,10 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-12 13:00:04
+ * @LastEditTime: 2023-06-13 16:46:38
  * @FilePath: \midway-project-web\src\stores\global\index.ts
  * @Description: 描述一下
- * 
+ *
  */
 import { create } from "zustand";
 import { devtools, persist, createJSONStorage } from "zustand/middleware";
@@ -22,8 +22,8 @@ interface Action {
   setDarkMode: (darkMode: State["darkMode"]) => void;
   setCollapsed: (collapsed: State["collapsed"]) => void;
   setLang: (lang: State["lang"]) => void;
-  setToken: (lang: State['token']) => void;
-  setRefreshToken: (lang: State['refreshToken']) => void;
+  setToken: (lang: State["token"]) => void;
+  setRefreshToken: (lang: State["refreshToken"]) => void;
 }
 
 export const useGlobalStore = create<State & Action>()(
