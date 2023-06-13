@@ -1,12 +1,3 @@
-/*
- * @Author: xushijie xushijie@yunlizhihui.com
- * @Date: 2023-06-05 16:19:03
- * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-13 15:04:32
- * @FilePath: \midway-project-web\src\layouts\slide\menus.tsx
- * @Description: 描述一下
- * 
- */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Menu } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
@@ -18,7 +9,6 @@ import { useGlobalStore } from '@/stores/global';
 const SlideMenu = () => {
 
   const matches = useMatches();
-
   const [openKeys, setOpenKeys] = useState<string[]>([]);
 
   const {
@@ -29,6 +19,7 @@ const SlideMenu = () => {
     if (collapsed) {
       setOpenKeys([]);
     } else {
+      console.log(matches, 'w');
       setOpenKeys(matches.map(match => match.pathname));
     }
   }, [
@@ -63,7 +54,7 @@ const SlideMenu = () => {
   const menuData = useMemo(() => {
     return treeMenuData(routeConfig || []);
   }, [treeMenuData]);
-
+  
   return (
     <Menu
       className='bg-primary color-transition'

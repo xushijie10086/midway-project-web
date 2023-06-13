@@ -29,7 +29,7 @@ export const routeConfig: MenuItem[] = [
       Component: lazy(() => import('@/pages/dashboard')),
    },
    {
-      path: 'system',
+      path: '/system',
       title: '系统管理',
       icon: <SettingOutlined />,
       children: [
