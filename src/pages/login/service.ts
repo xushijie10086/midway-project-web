@@ -2,13 +2,13 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-06 11:49:47
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-06 11:51:58
- * @FilePath: \fluxy-admin\midway-project-web\src\pages\login\service.ts
+ * @LastEditTime: 2023-06-12 12:36:20
+ * @FilePath: \midway-project-web\src\pages\login\service.ts
  * @Description: 描述一下
- * 
+ *
  */
 import axios from "axios";
-
+import request from "@/request";
 export interface LoginDTO {
   accountNumber: string;
   password: string;
@@ -41,6 +41,16 @@ const loginService = {
   // 获取加密公钥
   getPublicKey: () => {
     return axios.get<string>("/api/auth/publicKey");
+  },
+
+  // 刷新token
+  refreshToken: (refreshToken: string) => {
+    return request.post<TokenDTO>("/api/auth/refresh/token", { refreshToken });
+  },
+
+  // 退出登录
+  logout() {
+    return request.post<TokenDTO>("/api/auth/logout");
   },
 };
 

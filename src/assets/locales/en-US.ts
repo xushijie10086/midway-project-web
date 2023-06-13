@@ -58,7 +58,7 @@ export default {
   Ywamboto: "Mobile phone number",
   eQxPVurG: "Cannot be empty",
   KlmqOgfr: "Incorrect phone number format",
-  YsgvxeAf: "mailbox",
+  YsgvxeAf: "e-mail",
   cRMNYqkz: "Cannot be empty",
   vahfSEha: "Incorrect email format",
   GaiAJsLv: "Gender",

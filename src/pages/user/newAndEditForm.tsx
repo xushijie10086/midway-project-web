@@ -1,8 +1,9 @@
 import { t } from "@/utils/i18n";
-import { App, Form, FormInstance, Input, Radio } from "antd";
+import { Form, FormInstance, Input, Radio } from "antd";
 import { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from "react";
 import userService, { User } from "./service";
-import { useRequest } from "ahooks";
+import { useRequest } from "@/hooks/use-request";
+import { antdUtils } from "@/utils/antd";
 
 interface PropsType {
     open: boolean;
@@ -17,26 +18,23 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
     setSaveLoading,
 }, ref) => {
     const [form] = Form.useForm();
-    const { message } = App.useApp();
     const { runAsync: updateUser } = useRequest(userService.updateUser, { manual: true });
     const { runAsync: addUser } = useRequest(userService.addUser, { manual: true });
 
     useImperativeHandle(ref, () => form, [form])
 
     const finishHandle = async (values: User) => {
-        try {
-            setSaveLoading(true);
-            if (editData) {
-                await updateUser({ ...editData, ...values });
-                message.success(t("cEriMGHB" /* 更新成功！ */));
-            } else {
-                await addUser(values);
-                message.success(t("HmOqbLKP" /* 创建成功！ */));
-            }
-            onSave();
-        } catch (error: any) {
-            message.error(error?.response?.data?.message)
+        setSaveLoading(true);
+        if (editData) {
+            const [error] = await updateUser({ ...editData, ...values });
+            if (error) return setSaveLoading(false)
+            antdUtils.message?.success(t("cEriMGHB" /* 更新成功！ */));
+        } else {
+            const [error] = await addUser(values);
+            if (error) return setSaveLoading(false)
+            antdUtils.message?.success(t("HmOqbLKP" /* 创建成功！ */));
         }
+        onSave();
         setSaveLoading(false);
     }
 

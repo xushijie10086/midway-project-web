@@ -2,7 +2,7 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 17:52:30
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-09 17:26:02
+ * @LastEditTime: 2023-06-13 10:28:24
  * @FilePath: \midway-project-web\src\pages\login\index.tsx
  * @Description: 描述一下
  * 
@@ -11,20 +11,22 @@ import { IconYanzhengma01 } from '@/assets/icons/yanzhengma01'
 import { t } from '@/utils/i18n';
 import { IconBuguang } from '@/assets/icons/buguang'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { App, Button, Carousel, Form, Input } from 'antd';
+import { Button, Carousel, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useRequest } from 'ahooks';
 import loginService, { LoginDTO } from './service';
-import { useGlobalStore } from '@/store/global';
+import { useGlobalStore } from '@/stores/global';
 import { JSEncrypt } from "jsencrypt"
-
+import './index.css'
+import { antdUtils } from '@/utils/antd';
 const Login = () => {
-  const { message } = App.useApp();
+
   const { setToken, setRefreshToken } = useGlobalStore();
+
+  const navigate = useNavigate();
   const { runAsync: login, loading } = useRequest(loginService.login, { manual: true })
   const { data: captcha, refresh: refreshCaptcha } = useRequest(loginService.getCaptcha);
   const { runAsync: getPublicKey } = useRequest(loginService.getPublicKey, { manual: true });
-  const navigate = useNavigate();
 
   const onFinish = async (values: LoginDTO) => {
     if (!captcha?.data) return
@@ -46,13 +48,19 @@ const Login = () => {
       values.publicKey = publicKey;
 
       const { data } = await login(values);
-      setToken(data.token);
+
+      useGlobalStore.setState({
+        refreshToken: data.refreshToken,
+        token: data.token,
+      })
+
       setRefreshToken(data.refreshToken);
+      setToken(data.token);
 
       navigate('/');
     } catch (error: any) {
       refreshCaptcha();
-      message.error(error?.response?.data?.message);
+      antdUtils.message?.error(error?.response?.data?.message);
     }
   };
 
@@ -74,7 +82,7 @@ const Login = () => {
           <Form
             name="super-admin"
             className="login-form"
-            initialValues={{ accountNumber: '123456@qq.com', password: '123456' }}
+            initialValues={{ accountNumber: 'admin', password: '123456' }}
             onFinish={onFinish}
             size="large"
           >
@@ -107,7 +115,6 @@ const Login = () => {
                 placeholder={t("iOQnWBkH" /* 验证码 */)}
                 suffix={(
                   <img
-                    title={t("nwBLqTXw" /* 验证码 */)}
                     className='cursor-pointer'
                     src={captcha?.data?.imageBase64}
                     onClick={refreshCaptcha}
@@ -157,7 +164,7 @@ const Login = () => {
               <div className='h-[160px] bg-transparent flex items-center justify-center'>
                 <div>
                   <h3 className='dark:text-[rgb(215,220,236)] text-[rgb(18,25,38)] text-[34px]'>
-                  员工档案管理系统
+                    员工档案管理系统
                   </h3>
                   <div className='dark:text-[rgb(132,146,196)] text-[rgb(105,117,134)] text-[12px] my-[20px] '>
                     一个高颜值后台员工档案管理系统
@@ -169,7 +176,7 @@ const Login = () => {
               <div className='h-[160px] bg-transparent flex items-center justify-center'>
                 <div>
                   <h3 className='dark:text-[rgb(215,220,236)] text-[rgb(18,25,38)] text-[34px]'>
-                  员工档案管理系统
+                    员工档案管理系统
                   </h3>
                   <div className='dark:text-[rgb(132,146,196)] text-[rgb(105,117,134)] text-[12px] my-[20px]'>
                     一个高颜值后台管理系统

@@ -1,10 +1,19 @@
+/*
+ * @Author: xushijie xushijie@yunlizhihui.com
+ * @Date: 2023-06-05 16:19:03
+ * @LastEditors: xushijie xushijie@yunlizhihui.com
+ * @LastEditTime: 2023-06-13 15:04:32
+ * @FilePath: \midway-project-web\src\layouts\slide\menus.tsx
+ * @Description: 描述一下
+ * 
+ */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Menu } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import { Link, useMatches } from 'react-router-dom';
 
 import { MenuItem, routeConfig } from '@/config/routes';
-import { useGlobalStore } from '@/store/global';
+import { useGlobalStore } from '@/stores/global';
 
 const SlideMenu = () => {
 
@@ -57,7 +66,7 @@ const SlideMenu = () => {
 
   return (
     <Menu
-      className='bg-primary'
+      className='bg-primary color-transition'
       mode="inline"
       selectedKeys={matches?.length ? [matches?.at(-1)?.pathname || ''] : []}
       style={{ height: '100%', borderRight: 0 }}

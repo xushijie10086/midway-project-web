@@ -2,7 +2,7 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-09 17:34:14
+ * @LastEditTime: 2023-06-13 15:03:20
  * @FilePath: \midway-project-web\src\layouts\slide\index.tsx
  * @Description: 描述一下
  * 
@@ -12,7 +12,7 @@ import { Drawer } from 'antd';
 import { useUpdateEffect } from 'react-use';
 
 import { IconBuguang } from '@/assets/icons/buguang';
-import { useGlobalStore } from '@/store/global';
+import { useGlobalStore } from '@/stores/global';
 import { usePCScreen } from '@/hooks/use-pc-screen';
 import { defaultSetting } from '@/default-setting';
 
@@ -76,7 +76,7 @@ const SlideIndex = () => {
   return (
     <div
       style={{ width: collapsed ? 112 : defaultSetting.slideWidth }}
-      className="top-[80px] fixed box-border left-0 bottom-0 overflow-y-auto px-[16px] bg-primary <lg:hidden"
+      className="color-transition top-[80px] fixed box-border left-0 bottom-0 overflow-y-auto px-[16px] bg-primary <lg:hidden"
     >
       {renderMenu()}
     </div>

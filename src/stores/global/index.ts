@@ -2,8 +2,8 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-06 14:30:05
- * @FilePath: \fluxy-admin\midway-project-web\src\store\global\index.ts
+ * @LastEditTime: 2023-06-12 13:00:04
+ * @FilePath: \midway-project-web\src\stores\global\index.ts
  * @Description: 描述一下
  * 
  */

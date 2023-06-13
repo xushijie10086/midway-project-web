@@ -2,12 +2,12 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-07 14:30:18
+ * @LastEditTime: 2023-06-13 14:52:58
  * @FilePath: \midway-project-web\src\config\routes.tsx
  * @Description: 描述一下
  * 
  */
-import { DashboardOutlined, TableOutlined, UserOutlined } from '@ant-design/icons';
+import { DashboardOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { t } from "@/utils/i18n";
@@ -31,7 +31,7 @@ export const routeConfig: MenuItem[] = [
    {
       path: 'system',
       title: t("TxjhbkRA" /* 系统管理 */),
-      icon: <DashboardOutlined />,
+      icon: <SettingOutlined />,
       children: [
          {
             path: '/system/user',
@@ -40,12 +40,6 @@ export const routeConfig: MenuItem[] = [
             icon: <UserOutlined />,
          }
       ]
-   },
-   {
-      path: '/table',
-      Component: lazy(() => import('@/pages/table')),
-      title: t("bDMJnjEq" /* 表格 */),
-      icon: <TableOutlined />,
    },
    {
       path: '/',

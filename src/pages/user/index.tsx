@@ -9,13 +9,14 @@
  */
 import { t } from "@/utils/i18n";
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Col, Form, FormInstance, Input, Modal, Popconfirm, Row, Space, Table, message } from "antd"
+import { Button, Col, Form, FormInstance, Input, Modal, Popconfirm, Row, Space, Table } from "antd"
 import { useRef, useState } from "react";
 import { useAntdTable, useRequest } from 'ahooks'
 import userService, { User } from './service';
 import dayjs from 'dayjs'
 import { ColumnsType } from "antd/es/table";
 import NewAndEditForm from "./newAndEditForm";
+import { antdUtils } from "@/utils/antd";
 
 const UserPage = () => {
 
@@ -69,7 +70,7 @@ const UserPage = () => {
                         description={t("wxpXHvDa" /* 确认删除这条数据？ */)}
                         onConfirm={async () => {
                             await deleteUser(record.id);
-                            message.success(t("AEQHAHrP" /* 删除成功！ */));
+                            antdUtils.message?.success(t("AEQHAHrP" /* 删除成功！ */));
                             submit();
                         }}
                     >

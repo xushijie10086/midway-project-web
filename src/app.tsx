@@ -2,44 +2,27 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:19:03
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-05 17:48:19
+ * @LastEditTime: 2023-06-12 12:57:50
  * @FilePath: \midway-project-web\src\app.tsx
  * @Description: 描述一下
  * 
  */
 import { useEffect, useMemo } from 'react';
 import { ConfigProvider, ThemeConfig, theme, App as AntdApp } from 'antd'
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import zhCN from 'antd/locale/zh_CN';
+import enUS from 'antd/locale/en_US';
+import { useGlobalStore } from './stores/global'
 
-import { useGlobalStore } from './store/global'
-import { routeConfig } from './config/routes';
-
-import Login from './pages/login';
-import BasicLayout from './layouts';
-import Result404 from './404';
 import { i18n } from './utils/i18n';
 
 import './overwrite.css'
+import { router } from './router';
 
 function App() {
 
   const { darkMode, lang } = useGlobalStore();
 
-  const router = createHashRouter(
-    [
-      {
-        path: '/user/login',
-        Component: Login,
-      }, {
-        path: '/',
-        Component: BasicLayout,
-        children: routeConfig,
-      }, {
-        path: '*',
-        Component: Result404,
-      }
-    ]
-  );
 
   useEffect(() => {
     if (darkMode) {
@@ -81,6 +64,8 @@ function App() {
   return (
     <ConfigProvider
       theme={curTheme}
+      locale={lang === 'zh' ? zhCN : enUS}
+      componentSize='large'
     >
       <AntdApp>
         <RouterProvider router={router} />
