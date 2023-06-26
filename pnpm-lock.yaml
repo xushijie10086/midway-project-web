@@ -20,6 +20,9 @@ dependencies:
   antd:
     specifier: ^5.4.6
     version: 5.4.6(react-dom@18.2.0)(react@18.2.0)
+  antd-img-crop:
+    specifier: ^4.12.2
+    version: registry.npmmirror.com/antd-img-crop@4.12.2(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0)
   await-to-js:
     specifier: ^3.0.0
     version: registry.npmmirror.com/await-to-js@3.0.0
@@ -4364,6 +4367,24 @@ packages:
       tslib: registry.npmmirror.com/tslib@2.5.0
     dev: false
 
+  registry.npmmirror.com/antd-img-crop@4.12.2(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xgxR3x2sg+tCBHMfx1gejEfhhvnIL2mpZ4OIPfQDJZTTfm9YpMqaqLF9qWbF9Nf83bXCdaQywYihcVGyw3niDg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/antd-img-crop/-/antd-img-crop-4.12.2.tgz}
+    id: registry.npmmirror.com/antd-img-crop/4.12.2
+    name: antd-img-crop
+    version: 4.12.2
+    peerDependencies:
+      antd: '>=4.0.0'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      antd: 5.4.6(react-dom@18.2.0)(react@18.2.0)
+      compare-versions: registry.npmmirror.com/compare-versions@6.0.0-rc.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-easy-crop: registry.npmmirror.com/react-easy-crop@4.7.5(react-dom@18.2.0)(react@18.2.0)
+      tslib: registry.npmmirror.com/tslib@2.5.0
+    dev: false
+
   registry.npmmirror.com/asn1@0.2.6:
     resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/asn1/-/asn1-0.2.6.tgz}
     name: asn1
@@ -4404,6 +4425,12 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: registry.npmmirror.com/delayed-stream@1.0.0
+    dev: false
+
+  registry.npmmirror.com/compare-versions@6.0.0-rc.1:
+    resolution: {integrity: sha512-cFhkjbGY1jLFWIV7KegECbfuyYPxSGvgGkdkfM+ibboQDoPwg2FRHm5BSNTOApiauRBzJIQH7qvOJs2sW5ueKQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/compare-versions/-/compare-versions-6.0.0-rc.1.tgz}
+    name: compare-versions
+    version: 6.0.0-rc.1
     dev: false
 
   registry.npmmirror.com/dayjs@1.11.8:
@@ -4500,10 +4527,31 @@ packages:
       asn1: registry.npmmirror.com/asn1@0.2.6
     dev: false
 
+  registry.npmmirror.com/normalize-wheel@1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/normalize-wheel/-/normalize-wheel-1.0.1.tgz}
+    name: normalize-wheel
+    version: 1.0.1
+    dev: false
+
   registry.npmmirror.com/proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz}
     name: proxy-from-env
     version: 1.1.0
+    dev: false
+
+  registry.npmmirror.com/react-easy-crop@4.7.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qKfI4PuhaH1jOLC3DQfQB0cE0z+3N7bfyPkPejQmylXNb8nstfPMH+oHj3gKgpBHLFUiQp/C1rY7sVCVgtjn3Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-easy-crop/-/react-easy-crop-4.7.5.tgz}
+    id: registry.npmmirror.com/react-easy-crop/4.7.5
+    name: react-easy-crop
+    version: 4.7.5
+    peerDependencies:
+      react: '>=16.4.0'
+      react-dom: '>=16.4.0'
+    dependencies:
+      normalize-wheel: registry.npmmirror.com/normalize-wheel@1.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: registry.npmmirror.com/tslib@2.0.1
     dev: false
 
   registry.npmmirror.com/regenerator-runtime@0.13.11:
@@ -4535,6 +4583,12 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-1.14.1.tgz}
     name: tslib
     version: 1.14.1
+
+  registry.npmmirror.com/tslib@2.0.1:
+    resolution: {integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.0.1.tgz}
+    name: tslib
+    version: 2.0.1
+    dev: false
 
   registry.npmmirror.com/tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.5.0.tgz}

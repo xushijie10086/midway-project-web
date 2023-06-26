@@ -5,7 +5,7 @@
  * @LastEditTime: 2023-06-13 08:36:06
  * @FilePath: \midway-project-web\src\pages\user\service.ts
  * @Description: 描述一下
- * 
+ *
  */
 import request from "@/request";
 
@@ -17,10 +17,11 @@ export interface User {
   email: string;
   createDate: string;
   updateDate: string;
+  avatar?: any;
 }
 
 export interface PageData {
-  data: User[],
+  data: User[];
   total: number;
 }
 
@@ -56,6 +57,10 @@ const userService = {
   // 删除用户
   deleteUser: (id: number) => {
     return request.delete(`/api/user/${id}`);
+  },
+
+  sendEmailCaptcha: (email: string) => {
+    return request.post("/api/user/send/email/captcha", { email });
   },
 };
 

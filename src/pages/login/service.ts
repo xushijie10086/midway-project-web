@@ -2,12 +2,11 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-06 11:49:47
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-12 12:36:20
+ * @LastEditTime: 2023-06-26 15:01:08
  * @FilePath: \midway-project-web\src\pages\login\service.ts
  * @Description: 描述一下
  *
  */
-import axios from "axios";
 import request from "@/request";
 export interface LoginDTO {
   accountNumber: string;
@@ -29,18 +28,26 @@ export interface CaptchaDTO {
   imageBase64: string;
 }
 
+export interface ResetPasswordDTO {
+  password: string;
+  email: string;
+  emailCaptcha: string;
+  publicKey: string;
+  comfirmPassword?: string;
+}
+
 const loginService = {
   // 登录
   login: (loginDTO: LoginDTO) => {
-    return axios.post<TokenDTO>("/api/auth/login", loginDTO);
+    return request.post<TokenDTO>("/api/auth/login", loginDTO);
   },
   // 获取验证码
   getCaptcha: () => {
-    return axios.get<CaptchaDTO>("/api/auth/captcha");
+    return request.get<CaptchaDTO>("/api/auth/captcha");
   },
   // 获取加密公钥
   getPublicKey: () => {
-    return axios.get<string>("/api/auth/publicKey");
+    return request.get<string>("/api/auth/publicKey");
   },
 
   // 刷新token
@@ -51,6 +58,16 @@ const loginService = {
   // 退出登录
   logout() {
     return request.post<TokenDTO>("/api/auth/logout");
+  },
+
+  // 发送验证码
+  sendResetPasswordEmail(email: string) {
+    return request.post("/api/auth/send/reset/password/email", { email });
+  },
+
+  // 重置密码
+  resetPassaword(resetPasswordDTO: ResetPasswordDTO) {
+    return request.post("/api/auth/reset/password", resetPasswordDTO);
   },
 };
 

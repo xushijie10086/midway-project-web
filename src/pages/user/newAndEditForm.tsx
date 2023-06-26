@@ -1,10 +1,11 @@
 import { t } from "@/utils/i18n";
 import { Form, FormInstance, Input, Radio } from "antd";
-import { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from "react";
+import { ForwardRefRenderFunction, forwardRef, useImperativeHandle, useMemo } from "react";
 import userService, { User } from "./service";
 import { useRequest } from "@/hooks/use-request";
 import { antdUtils } from "@/utils/antd";
-
+import Avatar from './avatar';
+import EmailInput from "./email-input";
 interface PropsType {
     open: boolean;
     editData?: any;
@@ -25,6 +26,13 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
 
     const finishHandle = async (values: User) => {
         setSaveLoading(true);
+
+        if (values?.avatar?.[0]?.response?.id) {
+            values.avatar = values?.avatar?.[0]?.response?.id;
+        } else {
+            values.avatar = null;
+        }
+
         if (editData) {
             const [error] = await updateUser({ ...editData, ...values });
             if (error) return setSaveLoading(false)
@@ -38,14 +46,35 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
         setSaveLoading(false);
     }
 
+    const initialValues = useMemo(() => {
+        if (editData) {
+            return {
+                ...editData,
+                avatar: editData.avatarEntity ? [{
+                    uid: '-1',
+                    name: editData.avatarEntity.fileName,
+                    states: 'done',
+                    url: editData.avatarEntity.filePath,
+                    response: {
+                        id: editData.avatarEntity.id,
+                    },
+                }] : []
+            }
+        }
+    }, [editData]);
+
     return (
         <Form
             labelCol={{ sm: { span: 24 }, md: { span: 5 } }}
             wrapperCol={{ sm: { span: 24 }, md: { span: 16 } }}
             form={form}
             onFinish={finishHandle}
-            initialValues={editData}
+            initialValues={initialValues || { sex: 1 }}
         >
+            <Form.Item label='头像' name="avatar">
+                <Avatar />
+            </Form.Item>
+
             <Form.Item
                 label={t("gGGfiMXg" /* 用户名 */)}
                 name="userName"
@@ -90,8 +119,17 @@ const NewAndEditForm: ForwardRefRenderFunction<FormInstance, PropsType> = ({
                     message: t("vahfSEha" /* 邮箱格式不正确 */),
                 }]}
             >
-                <Input />
+                <EmailInput disabled={!!editData} />
             </Form.Item>
+
+            {!editData && (
+                <Form.Item
+                    name="emailCaptcha"
+                    label="邮箱验证码"
+                >
+                    <Input />
+                </Form.Item>
+            )}
             <Form.Item
                 label={t("GaiAJsLv" /* 性别 */)}
                 name="sex"

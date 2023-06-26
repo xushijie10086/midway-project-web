@@ -2,14 +2,14 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 16:27:47
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-05 17:14:47
+ * @LastEditTime: 2023-06-26 08:48:10
  * @FilePath: \midway-project-web\src\pages\user\index.tsx
  * @Description: 描述一下
  * 
  */
 import { t } from "@/utils/i18n";
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Col, Form, FormInstance, Input, Modal, Popconfirm, Row, Space, Table } from "antd"
+import { Avatar, Button, Col, Form, FormInstance, Input, Modal, Popconfirm, Row, Space, Table } from "antd"
 import { useRef, useState } from "react";
 import { useAntdTable, useRequest } from 'ahooks'
 import userService, { User } from './service';
@@ -17,6 +17,7 @@ import dayjs from 'dayjs'
 import { ColumnsType } from "antd/es/table";
 import NewAndEditForm from "./newAndEditForm";
 import { antdUtils } from "@/utils/antd";
+import { IconBuguang } from "@/assets/icons/buguang";
 
 const UserPage = () => {
 
@@ -28,6 +29,22 @@ const UserPage = () => {
     const [saveLoading, setSaveLoading] = useState(false);
     const [formOpen, setFormOpen] = useState(false);
     const columns: ColumnsType<any> = [
+        {
+            title: '头像',
+            dataIndex: 'avatarPath',
+            render: (value: string, record) => {
+                console.log(record);
+                return <div className='flex justify-center'>
+                    {value ? (
+                        <img src={value} className='w-[40px] h-[40px] flex items-center rounded-[50%]' />
+                    ) : (
+                        <Avatar className='bg-[gold] align-middle flex items-center justify-center w-[40px] h-[40px]' icon={<IconBuguang />} />
+                    )}
+                </div>
+            },
+            align: 'center',
+            width: 100,
+        },
         {
             title: t("gGGfiMXg" /* 用户名 */),
             dataIndex: 'userName',
@@ -145,7 +162,7 @@ const UserPage = () => {
                 }}
                 destroyOnClose
                 width={640}
-                zIndex={1001}
+                zIndex={999}
                 onCancel={closeForm}
                 confirmLoading={saveLoading}
             >
