@@ -2,7 +2,7 @@
  * @Author: xushijie xushijie@yunlizhihui.com
  * @Date: 2023-06-05 17:52:30
  * @LastEditors: xushijie xushijie@yunlizhihui.com
- * @LastEditTime: 2023-06-26 15:09:02
+ * @LastEditTime: 2023-06-26 17:45:36
  * @FilePath: \midway-project-web\src\pages\login\index.tsx
  * @Description: 描述一下
  * 
@@ -88,7 +88,7 @@ const Login = () => {
           <div className='text-center'>
             <div className='flex justify-center gap-2'>
               <IconBuguang className='text-[20px] text-blue-500' />
-              <h1 className='dark:(text-white) ' style={{ marginBottom: '0.2em' }}>员工档案管理系统</h1>
+              <h1 className='dark:(text-white) ' style={{ marginBottom: '0.2em' }}>后台管理系统模板</h1>
             </div>
             <h3
               className='dark:(text-white) text-[rgba(0,0,0,.45)] mb-[1em] text-[14px] font-normal'
@@ -197,7 +197,7 @@ const Login = () => {
               <div className='h-[160px] bg-transparent flex items-center justify-center'>
                 <div>
                   <h3 className='dark:text-[rgb(215,220,236)] text-[rgb(18,25,38)] text-[34px]'>
-                    fluxy-admin
+                    后台管理系统模板
                   </h3>
                   <div className='dark:text-[rgb(132,146,196)] text-[rgb(105,117,134)] text-[12px] my-[20px] '>
                     一个高颜值后台管理系统
@@ -209,7 +209,7 @@ const Login = () => {
               <div className='h-[160px] bg-transparent flex items-center justify-center'>
                 <div>
                   <h3 className='dark:text-[rgb(215,220,236)] text-[rgb(18,25,38)] text-[34px]'>
-                    fluxy-admin
+                    后台管理系统模板
                   </h3>
                   <div className='dark:text-[rgb(132,146,196)] text-[rgb(105,117,134)] text-[12px] my-[20px]'>
                     一个高颜值后台管理系统
@@ -221,7 +221,7 @@ const Login = () => {
               <div className='h-[160px] bg-transparent flex items-center justify-center'>
                 <div>
                   <h3 className='dark:text-[rgb(215,220,236)] text-[rgb(18,25,38)] text-[34px]'>
-                    fluxy-admin
+                    后台管理系统模板
                   </h3>
                   <div className='dark:text-[rgb(132,146,196)] text-[rgb(105,117,134)] text-[12px] my-[20px] '>
                     一个高颜值后台管理系统
