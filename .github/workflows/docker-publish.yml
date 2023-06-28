@@ -65,7 +65,7 @@ jobs:
         uses: D3rHase/ssh-command-action@v0.2.1
         with:
           HOST: ${{ secrets.SERVER_IP }}
-          PORT: 22 
-          USER: root
+          PORT: 2222 
+          USER: beyound
           PRIVATE_SSH_KEY: ${{ secrets.SERVER_KEY }}
           COMMAND: cd /root && ./run.sh
