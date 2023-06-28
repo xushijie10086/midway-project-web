@@ -1,9 +1,16 @@
-FROM node:16 AS builder
+FROM node:16 as builder
 
 WORKDIR /data/web
 
+COPY yarn.lock .
+COPY package.json .
+
+RUN yarn config set registry https://registry.npmmirror.com/
+
+RUN yarn install
+
 COPY . .
-RUN yarn && yarn build
+RUN yarn run build
 
 FROM nginx:alpine as nginx
 
